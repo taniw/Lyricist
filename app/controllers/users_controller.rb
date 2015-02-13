@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
-  def index
+  def new
+  	@user = User.new
+  end
+
+  def create
+  	@user = User.create(user_params)
+  	redirect_to user_path(@user.id)
   end
 
   def show
   end
 
-  def new
-  end
-
-  def edit
-  end
+  private
+  	def user_params
+  		params.require(:user).permit(:username, :password, :email)
+  	end
 end
