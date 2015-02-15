@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Favorite.create({user_id: "1", song_id: "1"})
+Favorite.create({user_id: "3", song_id: "1"})  
+

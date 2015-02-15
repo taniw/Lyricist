@@ -1,6 +1,9 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  has_many :songs, through: :favorites
+  
+
  BCrypt::Engine.cost = 12
 
   attr_reader :password
