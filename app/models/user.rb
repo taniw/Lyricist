@@ -2,6 +2,17 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   has_many :songs, through: :favorites
+
+  def favorite_songs
+    songs = []
+    favorites = Favorite.where(user_id: self.id)
+    if ! favorites.nil?
+      favorites.each do |f|
+        songs.push(song.find(favorite_id))
+      end
+    end
+
+  end
   
 
  BCrypt::Engine.cost = 12

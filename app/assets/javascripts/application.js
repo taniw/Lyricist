@@ -14,3 +14,40 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+	var BASE_PATH = window.location.host || document.location.host;
+
+
+	$('.search-song').click (function() {
+		var q = $('.search-query').val();
+		if (q.length > 3) {
+			$.ajax({
+				type: 'GET',
+				url: BASE_PATH + "/search_results",
+				data: {
+					search_by: q,
+				},
+				// jsonp: 'callback',
+				// dataType: 'jsonp',
+				success: function(response) {
+					console.log("yes!success");
+				},
+				error: function(response) {
+					console.log("Nope...wrong");
+				}
+			});
+		}
+
+	});
+
+
+
+
+
+
+
+
+
+});
+
