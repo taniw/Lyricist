@@ -22,11 +22,17 @@
 
 <div class="search-results"></div>
 
+<!-- handlebar stuff -->
+
 <script id="song-search-results-tpl" type="text/x-handlebars-template">
     <div class="container search-results">
+
       <ul class="results-list">
       {{#each data}}
         <li id="{{this.id}}">
+          <div>
+            <button class="add-to-favorites">Add to Favorites</button>
+          </div>
           <div>
             <span class="song-title-display">Song: {{this.title}}</span>
           </div>
