@@ -36,7 +36,7 @@ $(function(){
 					var source   = $("#song-search-results-tpl").html();
 					var template = Handlebars.compile(source);
 					$('.search-results').empty().append( template({data: response}) );
-					goToSongOnClick();
+					toggleSongLyricsOnClick();
 				},
 				error: function(response) {
 					console.log("Nope...wrong");
@@ -45,15 +45,22 @@ $(function(){
 		}
 	});
 
-	function goToSongOnClick(){
+	function toggleSongLyricsOnClick(){
 		$('.results-list li').click(function(e){
 			var song_id = $(e.target).closest('li').attr('id');
+			var lyrics_div = $('.lyrics-' + song_id);
+
+			if( ! lyrics_div.is(':empty') ) {
+				lyrics_div.toggle();
+				return;
+			}
+
 			$.ajax({
 				url: BASE_PATH + "/songs/" + song_id,
 				 type: 'get',
 				success: function(response) {
 					var lyrics = response.document.response.song.lyrics.plain;
-					var lyrics_div = $('.lyrics-' + response.id);
+					
 					lyrics_div.empty().append( lyrics.replace('\n\n', '<br><br>') ).show();
 
 				},
