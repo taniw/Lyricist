@@ -65,26 +65,16 @@
         <h4 class="modal-title" id="exampleModalLabel">Sign Up</h4>
       </div>
       <div class="modal-body">
+        <%= form_for User.new do |f| %>
+          Username:<%= f.text_field :username %><br/>
+          Password:<%= f.text_field :password %><br/>
+          Email:<%= f.text_field :email %>
         
-          <div class="form-group">
-          <%#= form_for @user do |f| %>
-            
-            Username: <%#= f.text_field :username %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn"><%= f.submit %></button>
           </div>
-          <div class="form-group">
-            
-            Password: <%#= f.text_field :password %>
-          </div>
-          <div class="form-group">
-            
-            Email: <%#= f.text_field :email %>
-          </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary"><%#= f.submit %></button>
-        </div>
-        <% #end %>
+        <% end %>
         
       </div>
     

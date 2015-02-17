@@ -64,7 +64,6 @@ $(function(){
 			// if lyrics is empty, be able to toggle and return the ajax call to show lyrics
 			if( ! lyrics_div.is(':empty') ) {
 				lyrics_div.toggle();
-
 				return;
 			}
 

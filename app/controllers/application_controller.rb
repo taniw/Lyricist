@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   # Want these method throughout entire program (not just sessionscontroller)
   # Can do this using INHERITANCE by including it in application_controller
   include SessionsHelper
+  
 end
