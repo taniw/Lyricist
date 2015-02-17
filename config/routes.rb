@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   
-  get 'songs/index'
+  get 'songs/:song_id', to: 'songs#index'
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"
@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get "/search", to: "search#index"
 
   resources :users
-
-  resources :search 
 
   # get 'sessions/new'
 

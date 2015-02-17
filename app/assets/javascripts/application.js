@@ -19,7 +19,9 @@ $(function(){
 	var BASE_PATH = "http://" + ( window.location.host || document.location.host );
 
 
-	$('.search-song').click (function() {
+
+
+	$('.search-song').click(function() {
 		var q = $('.search-query').val();
 		var search_by = $('.search-by-options-btn').text().trim();
 
@@ -34,18 +36,33 @@ $(function(){
 					var source   = $("#song-search-results-tpl").html();
 					var template = Handlebars.compile(source);
 					$('.search-results').empty().append( template({data: response}) );
+					goToSongOnClick();
 				},
 				error: function(response) {
 					console.log("Nope...wrong");
 				}
 			});
 		}
-
 	});
 
-	
+	function goToSongOnClick(){
+		$('.results-list li').click(function(e){
+			var song_id = $(e.target).closest('li').attr('id');
+			$.ajax({
+				url: BASE_PATH + "/songs/" + song_id,
+				 type: 'get',
+				success: function(response) {
+					var lyrics = response.document.response.song.lyrics.plain;
+					var lyrics_div = $('.lyrics-' + response.id);
+					lyrics_div.empty().append( lyrics.replace('\n\n', '<br><br>') ).show();
 
-
+				},
+				error: function(response) {
+					console.log("Nope...wrong");
+				}
+			});
+		});
+	}
 
 });
 

@@ -3,7 +3,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <p>Find me in app/views/home/index.html.erb</p>
+    <p>Search me</p>
 
 
   <div class="col-lg-12">
@@ -14,12 +14,13 @@
       </div><!-- /btn-group -->
     </div><!-- /input-group --> 
 
-    <div class="search-results"></div>
+    
 
   </div><!-- /.col-lg-12 -->
   </div>
 </div>
 
+<div class="search-results"></div>
 
 <script id="song-search-results-tpl" type="text/x-handlebars-template">
     <div class="container search-results">
@@ -27,16 +28,15 @@
       {{#each data}}
         <li id="{{this.id}}">
           <div>
-            <span>Song:</span> {{this.title}}
+            <span class="song-title-display">Song: {{this.title}}</span>
           </div>
           <div>
             <span>Artist:</span> {{this.artist.name}}
           </div>
+          <div class="lyrics-{{this.id}}"></div>
         </li>
+
       {{/each}}
       </ul>    
     </div>
 </script>
-
-
-
