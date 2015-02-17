@@ -24,6 +24,11 @@
 	margin-bottom: 10px;
 }
 
+.results-list li:hover {
+	background: lightcoral;
+	cursor: pointer;
+}
+
 .search-results {
 	margin: 0 auto;
 	text-align: center;
@@ -37,4 +42,15 @@
 	margin-top: 20px;
 	border-top: 2px solid black;
 	padding-top: 20px;
+}
+
+.glyphicon-user {
+	padding-right: 20px;
+	padding-top: 15px;
+}
+
+.sign-up-button {
+	margin-top: 8px;
+margin-right: 10px;
+}
 }

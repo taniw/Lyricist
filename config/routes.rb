@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   get "/sign_up", to: "users#new", as: "sign_up"
 
-  get "/search_results/:search_by", to: "search#index"
+  get "/search", to: "search#index"
 
   resources :users
 
-  # resources :search 
+  resources :search 
 
   # get 'sessions/new'
 

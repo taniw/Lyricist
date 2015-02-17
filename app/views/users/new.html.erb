@@ -1,18 +1,30 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
- <%= form_for @user do |f| %>
-          <div>
-          Username: <%= f.text_field :username %>
+<div id="signup">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Sign Up</button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+       
           </div>
-          <div>
-           Password: <%= f.text_field :password %>
-          </div>
-          <div>
-            Email: <%= f.text_field :email %>
-          </div>
-          <div>
-            <%= f.submit %>
-          </div>
-      <% end %>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+        <% end %>
+        
+      </div>
+    
+    </div>
+  </div>
+</div>
 

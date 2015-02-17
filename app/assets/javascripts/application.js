@@ -16,22 +16,24 @@
 //= require_tree .
 
 $(function(){
-	var BASE_PATH = window.location.host || document.location.host;
+	var BASE_PATH = "http://" + ( window.location.host || document.location.host );
 
 
 	$('.search-song').click (function() {
 		var q = $('.search-query').val();
-		if (q.length > 3) {
+		var search_by = $('.search-by-options-btn').text().trim();
+
+		if (q.length >= 3) {
 			$.ajax({
-				type: 'GET',
-				url: BASE_PATH + "/search_results",
+				url: BASE_PATH + "/search",
+				 type: 'get',
 				data: {
-					search_by: q,
+					q: q
 				},
-				// jsonp: 'callback',
-				// dataType: 'jsonp',
 				success: function(response) {
-					console.log("yes!success");
+					var source   = $("#song-search-results-tpl").html();
+					var template = Handlebars.compile(source);
+					$('.search-results').empty().append( template({data: response}) );
 				},
 				error: function(response) {
 					console.log("Nope...wrong");
@@ -41,11 +43,7 @@ $(function(){
 
 	});
 
-
-
-
-
-
+	
 
 
 
