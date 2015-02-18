@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 
   def create
   	user_params = params.require(:user)
-  	user = User.confirm(user_params[:username], user_params[:password])
-  	if user
+    user = User.find_by_username(user_params[:username])
+  	if user.authenticate(user_params[:password])
   		# using sessionshelper methods!
   		login(user)
   		redirect_to user_path(user.id)
@@ -14,5 +14,10 @@ class SessionsController < ApplicationController
   		flash[:error] = "Failed to Authenticate.Please try again."
   		redirect_to "/login"
   	end
+  end
+
+  def destroy
+    logout
+    redirect_to root_path
   end
 end
