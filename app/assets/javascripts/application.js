@@ -54,7 +54,7 @@ Lyricist.addFavorite = function(songId){
 	console.log("songid", songId);
 	$.post("/favorites", { songId: songId} )
 	.done(function(fav){
-		alert(fav);
+		alert("Song is favorited!");
 	});
 };
 
