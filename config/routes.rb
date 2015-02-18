@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root to: 'home#index'
   
   get 'songs/:song_id', to: 'songs#index'
 

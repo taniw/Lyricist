@@ -65,6 +65,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Sign Up</h4>
       </div>
       <div class="modal-body">
+      
         <%= form_for User.new do |f| %>
           Username:<%= f.text_field :username %><br/>
           Password:<%= f.text_field :password %><br/>
@@ -102,7 +103,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
