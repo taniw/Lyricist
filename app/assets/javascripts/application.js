@@ -73,7 +73,7 @@ $(function(){
 				success: function(response) {
 					var lyrics = response.document.response.song.lyrics.plain;
 					
-					lyrics_div.empty().append( lyrics.replace('\n\n', '<br><br>') ).show();
+					lyrics_div.empty().append( lyrics.replace('\n\n', '<br><br>', '\n\n\n\n\n\n\n\n\n\n\n\n', "<br><br>") ).show();
 
 				},
 				error: function(response) {

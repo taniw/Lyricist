@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  has_many :favorites
   has_many :songs, through: :favorites
   validates :username, :password, :email, presence: true
 

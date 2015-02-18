@@ -14,6 +14,27 @@
  *= require_self
  */
 
+ .jumbotron {
+    margin-bottom: 50px;
+    margin-top: -20px;
+    background-image: url('http://i.imgur.com/Qp0dN07.jpg');
+    background-position: 0% 35%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: gray 0.03em 0.03em 0.03em;
+    text-align: center;
+}
+
+.container h1 {
+	font-size: 200px;
+	letter-spacing: 5px;
+}
+
+.navigation {
+	border-radius: 0 -webkit-appearance: none;
+}
+
 .results-list {
 	list-style-type: none;
 }

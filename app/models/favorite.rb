@@ -1,6 +1,9 @@
 class Favorite < ActiveRecord::Base
-	belongs_to :users
-	belongs_to :songs
+	belongs_to :user
+	belongs_to :song
+
+	validates :user_id, presence: true
+	validates :song_id, presence: true
 end
 
 
