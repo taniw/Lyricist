@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'home#index'
   
   get 'songs/:song_id', to: 'songs#index'
