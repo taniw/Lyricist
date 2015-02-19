@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   	if user.authenticate(user_params[:password])
   		# using sessionshelper methods!
   		login(user)
-  		redirect_to user_path(user.id)
+  		redirect_to root_path(user.id)
   	else
   		# Flash an error message
   		flash[:error] = "Failed to Authenticate.Please try again."
