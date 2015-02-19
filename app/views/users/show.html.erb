@@ -11,9 +11,12 @@
 		<div class="row favorites-list">
 			<ul class="results-list">
 				<% @favorites.each do |favorite| %>
-					<li><span><%= favorite.artist %></li>
-					<li><span><%= favorite.title %></li>
-					<li><span><%= favorite.lyrics %></li>
+				<div class="favorite-song-<%= favorite.id %>">
+					<div class="delete-btn" onclick="Lyricist.deleteFavorite( <%= favorite.id %> )"><button class="btn btn-danger">Delete</button></div>
+					<div><%= favorite.artist %></div>
+					<div><%= favorite.title %></div>
+					<div><%= favorite.lyrics %></div>
+				</div>
 				<% end %>
 			</ul> 
 		</div>

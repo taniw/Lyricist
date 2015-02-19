@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'songs/:song_id', to: 'songs#index'
 
   post '/favorites', to: 'favorites#create'
+  delete '/favorites', to: 'favorites#destroy'
 
   get "/login", to: "sessions#new", as: :login
   post "/sessions", to: "sessions#create"

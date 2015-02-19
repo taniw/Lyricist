@@ -70,7 +70,20 @@ Lyricist.addFavorite = function(songId){
 			console.log("Nope...wrong");
 		}
 	});
-
-	
 };
 
+Lyricist.deleteFavorite = function(songId){
+	$.ajax({
+		url: '/favorites',
+		type: 'DELETE',
+		data: {
+			song_id: songId
+		},
+		success: function(response){
+			$('.favorite-song-' + songId).remove();
+		},
+		error: function (response) {
+			console.log('OMG totally failed');
+		}
+	});
+};
