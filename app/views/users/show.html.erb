@@ -11,8 +11,9 @@
 		<div class="row favorites-list">
 			<ul class="results-list">
 				<% @favorites.each do |favorite| %>
-					<li><span><%= RapGenius::Song.find(favorite.song_id).artist %></li>
-					<li><span><%= RapGenius::Song.find(favorite.song_id).description %></li>
+					<li><span><%= favorite.artist %></li>
+					<li><span><%= favorite.title %></li>
+					<li><span><%= favorite.lyrics %></li>
 				<% end %>
 			</ul> 
 		</div>

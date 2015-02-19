@@ -23,6 +23,7 @@ var Lyricist = {};
 Lyricist.toggleSongLyricsOnClick = function(){
 	// when you click on one of the search results
 	$('.results-list li').click(function(e){
+		e.preventDefault();
 		// click the closest targeted li and get that specific song id
 		var song_id = $(e.target).closest('li').attr('id');
 		// shows the lyrics of the song by id
@@ -34,26 +35,42 @@ Lyricist.toggleSongLyricsOnClick = function(){
 			return;
 		}
 
-		$.ajax({
-			url: BASE_PATH + "/songs/" + song_id,
-			 type: 'get',
-			success: function(response) {
-				var lyrics = response.document.response.song.lyrics.plain;
-				
-				lyrics_div.empty().append( lyrics.replace('\n\n', '<br><br>', '\n\n\n\n\n\n\n\n\n\n\n\n', "<br><br>") ).show();
+		
 
-			},
-			error: function(response) {
-				console.log("Nope...wrong");
-			}
-		});
+		return false;
 	});
-}
+};
 
 Lyricist.addFavorite = function(songId){
-	$.post("/favorites", { api_id: songId} )
-	.done(function(fav){
-		alert("Song is favorited!");
+	var lyrics_div = $('.lyrics-' + songId);
+	if( ! lyrics_div.is(':empty') ) {
+		return;
+	}
+	$.ajax({
+		url: BASE_PATH + "/songs/" + songId,
+		 type: 'get',
+		success: function(response) {
+			var lyrics = response.document.response.song.lyrics.plain;
+			
+			lyrics_div.empty().append( lyrics );
+
+			var data = {
+				api_id: songId,
+				song_title: $('.song-title-display-' + songId).text(),
+				song_artist: $('.song-artist-' + songId).text(),
+				song_lyrics: $('.lyrics-' + songId).text()
+			}
+			$.post("/favorites", data)
+			.done(function(fav){
+				alert("Song is favorited!");
+			});
+
+		},
+		error: function(response) {
+			console.log("Nope...wrong");
+		}
 	});
+
+	
 };
 

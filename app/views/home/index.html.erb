@@ -32,10 +32,10 @@
         <li id="{{this.id}}">
           <button class="add-to-favorites" onclick="Lyricist.addFavorite({{this.id}})">Add to Favorites</button>
           <div>
-            <span class="song-title-display">Song: {{this.title}}</span>
+            Song:<span class="song-title-display-{{this.id}}">{{this.title}}</span>
           </div>
           <div>
-            <span>Artist:</span> {{this.artist.name}}
+            Artist:<span class="song-artist-{{this.id}}">{{this.artist.name}}</span>
           </div>
           <div class="lyrics-{{this.id}}"></div>
         </li>
@@ -69,8 +69,8 @@
           var template = Handlebars.compile(source);
           // append the lyrics to the selected song
           $('.search-results').empty().append( template({data: response}) );
-          // hit this function (can show and hide song lyrics)
-          Lyricist.toggleSongLyricsOnClick();
+    
+         
         },
         error: function(response) {
           console.log("Nope...wrong");

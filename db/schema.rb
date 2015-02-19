@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213231328) do
+ActiveRecord::Schema.define(version: 20150219061346) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20150213231328) do
     t.integer  "api_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "artist"
+    t.string   "lyrics"
   end
 
   create_table "users", force: :cascade do |t|

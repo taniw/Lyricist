@@ -20,8 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @songs = RapGenius::Song.find(params[:api_id])
-    @favorites = @user.favorites
-    # @songs = User.find(params[:id]).songs
+    @favorites = @user.songs
   end
 
   private

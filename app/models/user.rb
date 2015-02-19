@@ -2,19 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :favorites
   has_many :songs, through: :favorites
-  validates :username, :password, :email, presence: true
-
-  def favorite_songs
-    songs = []
-    favorites = Favorite.where(user_id: self.id)
-    if ! favorites.nil?
-      favorites.each do |f|
-        songs.push(song.find(favorite_id))
-      end
-    end
-
-  end
-  
+  validates :username, :password, :email, presence: true  
 
  # BCrypt::Engine.cost = 12
 
