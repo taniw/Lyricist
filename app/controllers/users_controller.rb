@@ -9,13 +9,16 @@ class UsersController < ApplicationController
   	@user = User.create(user_params)
     if @user.save
       redirect_to user_path(@user.id)
-    else
+    else #saving the user is unsuccessful
+      #populate the flash hash with the errors present in active record
+      flash[:error] = @user.errors.full_messages.to_sentence
       redirect_to root_path
       # render html: @user.errors.full_messages
     end
   end
 
   def show
+    @songs = User.find(params[:id]).songs
   end
 
   private

@@ -51,8 +51,7 @@ Lyricist.toggleSongLyricsOnClick = function(){
 }
 
 Lyricist.addFavorite = function(songId){
-	console.log("songid", songId);
-	$.post("/favorites", { songId: songId} )
+	$.post("/favorites", { api_id: songId} )
 	.done(function(fav){
 		alert("Song is favorited!");
 	});
