@@ -1,21 +1,20 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<p>Welcome, <%= current_user.username %>!</p>
+<h1 class="profile-page-name"> HEY, <%= current_user.username %>!</h1>
+<br><br>
 
 <div class="container">
 	
 
 	<div>
-		<div class="favorites-title">Favorite Songs</div>
+		<div class="favorites-title">CHECK OUT YOUR FAVORITE SONGS</div>
 		<div class="row favorites-list">
 			<ul class="results-list">
 				<% @favorites.each do |favorite| %>
 				<div class="favorite-song-<%= favorite.id %>">
+					<div class="faved-artist"><%= favorite.artist %></div>
+					<div class="faved-title"><%= favorite.title %></div>
+					<div class="faved-lyrics"><%= favorite.lyrics %></div><br>
 					<div class="delete-btn" onclick="Lyricist.deleteFavorite( <%= favorite.id %> )"><button class="btn btn-danger">Delete</button></div>
-					<div><%= favorite.artist %></div>
-					<div><%= favorite.title %></div>
-					<div><%= favorite.lyrics %></div>
+					<hr>
 				</div>
 				<% end %>
 			</ul> 

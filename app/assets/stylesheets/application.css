@@ -42,13 +42,14 @@
 
 .results-list li {
 	padding: 20px;
-	border: lightcoral solid 1px;
+	border: rgb(182, 33, 90) solid 1px;
 	margin-bottom: 10px;
 }
 
 .results-list li:hover {
-	background: lightcoral;
+	background: rgb(182, 33, 90);
 	cursor: pointer;
+	color: white;
 }
 
 .search-results {
@@ -58,6 +59,7 @@
 
 .favorites-title {
 	text-align: center;
+	font-size: 20px;
 }
 
 .favorites-list {
@@ -86,6 +88,26 @@ margin-right: 10px;
 
 .favorite-songs {
 	margin-bottom: 30px;
+}
+
+.faved-artist {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.faved-title {
+	font-size: 20px;
+	font-style: italic;
+}
+
+.profile-page-name {
+	text-align: center;
+	font-size: 50px;
+}
+
+.song-results {
+	font-size: 30px;
+	font-weight: 500;
 }
 
 
